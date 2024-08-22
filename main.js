@@ -71,8 +71,8 @@ let personArray = [
 ];
 
 // Find
-let getPersonFromIndiaUsingFind = personArray.find((singlePerson, index) => {
-    return singlePerson.country === "india";
+let getPersonFromIndiaUsingFind = personArray.find((Person, index) => {
+    return Person.country === "india";
 });
 
 console.log(getPersonFromIndiaUsingFind);
@@ -86,7 +86,7 @@ console.log(getPersonFromIndiaUsingFilter);
 
 // Some
 let getPersonUsingSome = personArray.some((singlePerson) => {
-    return singlePerson.age > 20;
+    return singlePerson.age > 40;
 });
 
 console.log(getPersonUsingSome);
@@ -124,3 +124,86 @@ let getPersonInfoUsingMap = personArray.map((singlePerson, index) => {
 });
 
 console.log(getPersonInfoUsingMap);
+
+// Default parameters 
+function mulOfTwoNumber (num1 = 3, num2 = 1) {
+    return num1 * num2;
+}
+
+console.log(mulOfTwoNumber(2,4)) // Passing values as parameters
+console.log(mulOfTwoNumber()) // no parameters passed it takes the initialised value
+
+// Spread
+const simArray1 = [2,3,4];
+const simArray2 = [4,6,8];
+console.log(...simArray1); // simple spreading
+console.log([...simArray1]); // spreading inside the index
+console.log(...simArray1, ...simArray2); // spreading both the array
+console.log(...simArray1, simArray2); // spreading both the array that has ... and index for the array elements that does'nt have ...
+console.log([...simArray1, ...simArray2]); // spreading inside the index for both the array
+console.log([...simArray1, ...simArray2, 10000]); // spreading the non assigned elements too
+
+// Rest
+
+function getInfo(a,b,c,d,e,f,g,h,i,j) {
+    console.log(a,b,c,d,e,f,g,h,i,j);
+    return "";
+}
+
+console.log(getInfo(1,2,3,4,5,6,7,8,9,11));
+
+function getInfos(a,b, ...c) { // rest of the values will be assigned into the 'c' itself
+    console.log(a,b,c);
+    return "";
+}
+
+console.log(getInfos(1,2,3,4,5,6,7,8,9,11));
+
+// Async and Await
+
+// Normal function
+function fn(message) {
+    return message;
+}
+console.log(fn("Hello"));
+
+// Async function
+async function func(message) {
+    return message;
+}
+console.log(func("Hello"));
+
+// Then
+async function funct() {
+    return "";
+}
+console.log(funct());
+funct().then((msg)=>console.log(msg));
+
+// Await
+
+
+async function asyncFunction() {
+    console.log("hi..");
+    res = await personArray;
+    console.log(res);
+    console.log("Bye..");
+}
+
+asyncFunction()
+
+// try and catch
+
+async function asyncFunctions() {
+    try{
+    console.log("hi..");
+    resc = await personArray;
+    console.log(resc);
+    console.log("Bye..");
+}
+ catch(err) {
+    console.log("Error Occured");
+ }
+}
+
+asyncFunctions()
